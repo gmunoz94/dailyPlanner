@@ -33,3 +33,7 @@ function addTime() {
         i++;
     })
 }
+
+saveBlock.on('click', function (){
+    $(this)
+})

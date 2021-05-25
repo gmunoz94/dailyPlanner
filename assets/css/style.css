@@ -30,12 +30,12 @@ textarea {
     text-align: center;
     line-height: 80px;
     border-bottom: black 3px solid;
-    margin-inline: 1%;
+    border-right: black 3px solid;
+    border-bottom-right-radius: 15px;
+    margin-right: 1%;
 }
 
-.time-block:hover, .save-block:hover {
-    background-color: cornsilk;
-}
+
 
 .row {
     white-space: pre-wrap;
@@ -70,11 +70,13 @@ textarea {
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
+    line-height: 80px;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
+    background-color: #46cae7;
 }
 
 .border-bottom {

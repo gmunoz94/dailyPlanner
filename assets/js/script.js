@@ -1,7 +1,7 @@
 var timeDisplayEl = $('#time-display');
 var timeBlock = $("<div></div>").addClass('col-2 col-md-1 text-center time-block')
 var textArea = $("<textarea></textarea>").addClass('col-6 col-md-6 bg-dark text-white')
-var saveBlock = $("<a></a>").addClass('col-2 col-md-1 text-center align-middle save-block').html('<a class="bi bi-save-fill"></a')
+var saveBlock = $("<a></a>").addClass('col-2 col-md-1 text-center align-middle saveBtn').html('<i class="bi bi-save-fill"></i>')
 
 function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
@@ -36,4 +36,17 @@ function addTime() {
 
 saveBlock.on('click', function (){
     $(this)
+})
+
+$('section div div').each(function () {
+    console.log(moment.isMoment($(this).text, 'ha'))
+    if (moment().isSame($(this), 'h a')) {
+        $('textarea').addClass('present')
+    }
+    if (moment().isBefore($(this), 'h a')) {
+        $('textarea').addClass('past')
+    }
+    if (moment().isAfter($(this), 'h a')) {
+        $('textarea').addClass('future')
+    }
 })

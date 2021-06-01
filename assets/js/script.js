@@ -47,22 +47,39 @@ saveBlock.on('click', function (){
     $(this)
 })
 
-var now = moment('14', 'HH').format('HH')
+var now = moment().format('HH')
 
 console.log(now)
 
 function colorTime() {
     for (k = 0; k < time.length; k ++) {
         if (now < time[k]) {
-            $('#timeSection').children().eq(k).find('textarea').addClass('future')
+            $('#timeSection').children().eq(k).find('textarea').addClass('future').attr('id', 'text' + time[k])
+
         }
         else if (now == time[k]) {
-            $('#timeSection').children().eq(k).find('textarea').addClass('present')
+            $('#timeSection').children().eq(k).find('textarea').addClass('present').attr('id', 'text' + time[k])
         }
         else if (now > time[k]) {
-            $('#timeSection').children().eq(k).find('textarea').addClass('past')
+            $('#timeSection').children().eq(k).find('textarea').addClass('past').attr('id', 'text' + time[k])
         }
     }
 }
 
 colorTime()
+
+$('a').click(function() {
+    var chosenText = $(this).siblings('textarea').val()
+    var chosenTime = $(this).siblings('div').attr('id')
+
+    console.log(chosenText)
+    console.log(chosenTime )
+    
+    var timeEvent = {
+        timeOfDay: chosenTime,
+        chosenText: chosenText
+    }
+
+    localStorage.setItem('timeEvent', JSON.stringify(timeEvent));
+})
+

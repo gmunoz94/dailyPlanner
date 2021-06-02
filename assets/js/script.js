@@ -80,6 +80,18 @@ $('a').click(function() {
         chosenText: chosenText
     }
 
-    localStorage.setItem('timeEvent', JSON.stringify(timeEvent));
+    localStorage.setItem(chosenTime, JSON.stringify(timeEvent));
 })
 
+function setLogged() {
+    for (var t = 0; t < time.length; t++) {
+        var storedTask = JSON.parse(localStorage.getItem(time[t]))
+        if (storedTask === null) {
+
+        } else {
+            console.log(storedTask)
+        }
+    }
+}
+
+setLogged()
